@@ -103,6 +103,9 @@ def block_alt(lang: str, page: str) -> str:
     lines.append(f'<link rel="alternate" hreflang="x-default" href="{url_for("en", page)}">')
     css = "site.css" if page == "index.html" else "legal.css"
     lines.append(f'<link rel="stylesheet" href="{asset(lang, css)}?v={css_version(css)}">')
+    lines.append(f'<link rel="icon" href="{asset(lang, "favicon.ico")}" sizes="16x16 32x32 48x48">')
+    lines.append(f'<link rel="icon" type="image/png" href="{asset(lang, "favicon.png")}" sizes="192x192">')
+    lines.append(f'<link rel="apple-touch-icon" href="{asset(lang, "apple-touch-icon.png")}">')
     return "\n".join(lines)
 
 
