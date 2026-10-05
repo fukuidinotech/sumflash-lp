@@ -12,8 +12,12 @@ body {
   font-size: 16px; line-height: 1.85;
 }
 main { max-width: 720px; margin: 0 auto; }
+/* 中国語・韓国語のページで漢字を日本の字形（ヒラギノ）で出さない */
+:lang(zh-Hans) body, body:lang(zh-Hans) { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Noto Sans SC", sans-serif; }
+:lang(zh-Hant) body, body:lang(zh-Hant) { font-family: -apple-system, BlinkMacSystemFont, "PingFang TC", "Microsoft JhengHei", "Noto Sans TC", sans-serif; }
+:lang(ko) body, body:lang(ko) { font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", sans-serif; }
 a { color: var(--accent); }
-.langbar { max-width: 720px; margin: 0 auto; padding: 14px 0; display: flex; gap: 14px; justify-content: flex-end; font-size: 13px; }
+.langbar { max-width: 720px; margin: 0 auto; padding: 14px 0; display: flex; flex-wrap: wrap; gap: 6px 14px; justify-content: flex-end; font-size: 13px; }
 .langbar a { color: var(--sub); text-decoration: none; }
 .langbar a[aria-current="true"] { color: var(--text); font-weight: 600; }
 .hero { padding: 40px 0 24px; }

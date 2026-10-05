@@ -45,13 +45,64 @@ LANGS = {
         "privacy.html": "Privacy Policy", "terms.html": "Terms of Use",
         "contact": "Contact",
         "updated": "Last updated", "date": "{month} {d}, {y}",
+    },    "de": {
+        "dir": "de", "native": "Deutsch", "pick": "Sprache wählen",
+        "app": "Sumflash", "tagline": "Flash-Kopfrechnen-Training für iOS",
+        "privacy.html": "Datenschutzerklärung", "terms.html": "Nutzungsbedingungen", "contact": "Kontakt",
+        "updated": "Zuletzt aktualisiert", "date": "{d}. {month} {y}",
+    },
+    "fr": {
+        "dir": "fr", "native": "Français", "pick": "Choisir une langue",
+        "app": "Sumflash", "tagline": "entraînement au calcul mental flash pour iOS",
+        "privacy.html": "Politique de confidentialité", "terms.html": "Conditions d’utilisation", "contact": "Contact",
+        "updated": "Dernière mise à jour ", "date": "{d} {month} {y}",
+    },
+    "es": {
+        "dir": "es", "native": "Español", "pick": "Elegir idioma",
+        "app": "Sumflash", "tagline": "entrenamiento de cálculo mental flash para iOS",
+        "privacy.html": "Política de privacidad", "terms.html": "Condiciones de uso", "contact": "Contacto",
+        "updated": "Última actualización", "date": "{d} de {month} de {y}",
+    },
+    "it": {
+        "dir": "it", "native": "Italiano", "pick": "Scegli la lingua",
+        "app": "Sumflash", "tagline": "allenamento di calcolo mentale flash per iOS",
+        "privacy.html": "Informativa sulla privacy", "terms.html": "Termini di utilizzo", "contact": "Contatti",
+        "updated": "Ultimo aggiornamento", "date": "{d} {month} {y}",
+    },
+    "pt": {
+        "dir": "pt", "native": "Português", "pick": "Escolha o idioma",
+        "app": "Sumflash", "tagline": "Treino de cálculo mental flash para iOS",
+        "privacy.html": "Política de Privacidade", "terms.html": "Termos de Uso", "contact": "Contato",
+        "updated": "Última atualização", "date": "{d} de {month} de {y}",
+    },
+    "ko": {
+        "dir": "ko", "native": "한국어", "pick": "언어 선택",
+        "app": "Sumflash", "tagline": "iOS용 플래시 암산 트레이닝",
+        "privacy.html": "개인정보 처리방침", "terms.html": "이용약관", "contact": "문의하기",
+        "updated": "최종 수정일", "date": "{y}년 {m}월 {d}일",
+    },
+    "zh-Hans": {
+        "dir": "zh-Hans", "native": "简体中文", "pick": "选择语言",
+        "app": "Sumflash：闪电心算", "tagline": "iOS 闪电心算训练",
+        "privacy.html": "隐私政策", "terms.html": "使用条款", "contact": "联系我们",
+        "updated": "最后更新", "date": "{y}年{m}月{d}日",
+    },
+    "zh-Hant": {
+        "dir": "zh-Hant", "native": "繁體中文", "pick": "選擇語言",
+        "app": "Sumflash：閃電心算", "tagline": "iOS 閃電心算訓練",
+        "privacy.html": "隱私權政策", "terms.html": "使用條款", "contact": "聯絡我們",
+        "updated": "最後更新日期", "date": "{y}年{m}月{d}日",
     },
 }
 
 # 月の名前が要る言語だけ持つ（ja / zh / ko は数字で書く）
 MONTHS = {
     "en": ["", "January", "February", "March", "April", "May", "June",
-           "July", "August", "September", "October", "November", "December"],
+           "July", "August", "September", "October", "November", "December"],    "de": ["", "Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"],
+    "fr": ["", "janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"],
+    "es": ["", "enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"],
+    "it": ["", "gennaio", "febbraio", "marzo", "aprile", "maggio", "giugno", "luglio", "agosto", "settembre", "ottobre", "novembre", "dicembre"],
+    "pt": ["", "janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"],
 }
 
 
@@ -92,7 +143,9 @@ def date_text(lang: str, iso: str) -> str:
     y, m, d = (int(v) for v in iso.split("-"))
     cfg = LANGS[lang]
     month = MONTHS[lang][m] if "{month}" in cfg["date"] else ""
-    return f'{cfg["updated"]}: ' + cfg["date"].format(y=y, m=m, d=d, month=month)
+    # 中国語は全角のコロン
+    sep = "：" if lang.startswith("zh") else ": "
+    return f'{cfg["updated"]}{sep}' + cfg["date"].format(y=y, m=m, d=d, month=month)
 
 
 def block_alt(lang: str, page: str) -> str:
