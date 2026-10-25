@@ -7,6 +7,12 @@
 <p align="center">Five minutes of flash mental math a day: numbers flash one at a time, and you add them up in your head. This is the public website for the iOS app Sumflash.</p>
 
 <p align="center">
+  <a href="https://apps.apple.com/app/id6816003975">
+    <img src="https://toolbox.marketingtools.apple.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store" height="44">
+  </a>
+</p>
+
+<p align="center">
   <a href="https://fukuidinotech.github.io/sumflash-lp/">https://fukuidinotech.github.io/sumflash-lp/</a>
 </p>
 
