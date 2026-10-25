@@ -11,9 +11,7 @@
 </p>
 
 <p align="center">
-  <a href="https://fukuidinotech.github.io/sumflash-lp/">日本語</a>
-  ·
-  <a href="https://fukuidinotech.github.io/sumflash-lp/en/">English</a>
+  <a href="https://fukuidinotech.github.io/sumflash-lp/ja/">日本語</a>
   ·
   <a href="https://fukuidinotech.github.io/sumflash-lp/de/">Deutsch</a>
   ·

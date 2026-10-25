@@ -25,22 +25,15 @@ import sys
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 BASE = "https://fukuidinotech.github.io/sumflash-lp/"
 
-# ja は repo 直下。公開済みの URL（App Store の marketing_url・アプリ内リンク）を
-# 動かさないため、ja だけサブディレクトリを持たない
+# en は repo 直下、ほかは同名のサブディレクトリ（2026-10-25 に直下を ja から en に替えた）。
+# 旧 en/ は出荷済みアプリとストアが開くので転送ページとして残している（このスクリプトは触らない）
 PAGES = ["index.html", "privacy.html", "terms.html"]
 LEGAL = ["privacy.html", "terms.html"]
 CONTACT = "fukuidinotech@gmail.com"
 
 LANGS = {
-    "ja": {
-        "dir": "", "native": "日本語", "pick": "言語を選ぶ",
-        "app": "フラッシュ暗算 - Sumflash", "tagline": "そろばん式の暗算トレーニング（iOS）",
-        "privacy.html": "プライバシーポリシー", "terms.html": "利用規約",
-        "contact": "お問い合わせ",
-        "updated": "最終更新日", "date": "{y}年{m}月{d}日",
-    },
     "en": {
-        "dir": "en", "native": "English", "pick": "Choose a language",
+        "dir": "", "native": "English", "pick": "Choose a language",
         "app": "Sumflash", "tagline": "flash mental math trainer for iOS",
         "privacy.html": "Privacy Policy", "terms.html": "Terms of Use",
         "contact": "Contact",
@@ -50,6 +43,13 @@ LANGS = {
         "app": "Sumflash", "tagline": "Flash-Kopfrechnen-Training für iOS",
         "privacy.html": "Datenschutzerklärung", "terms.html": "Nutzungsbedingungen", "contact": "Kontakt",
         "updated": "Zuletzt aktualisiert", "date": "{d}. {month} {y}",
+    },
+    "ja": {
+        "dir": "ja", "native": "日本語", "pick": "言語を選ぶ",
+        "app": "フラッシュ暗算 - Sumflash", "tagline": "そろばん式の暗算トレーニング（iOS）",
+        "privacy.html": "プライバシーポリシー", "terms.html": "利用規約",
+        "contact": "お問い合わせ",
+        "updated": "最終更新日", "date": "{y}年{m}月{d}日",
     },
     "fr": {
         "dir": "fr", "native": "Français", "pick": "Choisir une langue",
